@@ -15,7 +15,7 @@ const GameController = () => {
       .then((res) => res.data)
       .then((data) => {
         setData(data)
-        console.log(data)
+        
       })
   }
 
@@ -32,7 +32,7 @@ const GameController = () => {
         amt: 15,
       })
     })
-    console.log(chartData)
+   
   }
 
   useEffect(() => {

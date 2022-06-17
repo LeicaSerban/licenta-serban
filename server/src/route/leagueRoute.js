@@ -5,17 +5,7 @@ const LeagueModule = require('../modules/leagueModel.js');
 
 const route = express.Router();
 
-// const createSchema = Joi.object({
-// name: Joi.string().required(),
-// season: Joi.string().required(),
-// })
 
-// route.post("/create", async(req, res)=>{
-//   const {name, season} = await createSchema.validateAsync(req.body);
-//   const created = await LeagueModule.create({name, season});
-//   res.json(created);
-//   console.log(created);
-// })
 
 const getLeagueByNameSchema = Joi.object({
   name: Joi.string().required(),

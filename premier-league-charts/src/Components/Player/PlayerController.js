@@ -1,56 +1,55 @@
-import Player from './Player'
-import axios from 'axios'
-import { useState, useEffect } from 'react'
-import SelectPlayer from './SelectPlayer'
-import SelectPlayerController from './SelectPlayerController'
+// import Player from './Player'
+// import axios from 'axios'
+// import { useState, useEffect } from 'react'
+// import SelectPlayerController from './SelectPlayerController'
 
-const chartData = []
+// const chartData = []
 
-const TeamController = () => {
-  const [data, setData] = useState()
+// const TeamController = () => {
+//   const [data, setData] = useState()
 
-  const fetchData = (event) => {
-    axios
-      .get('http://localhost:3000/player/players')
-      .then((res) => res.data)
-      .then((data) => {
-        setData(data)
-        console.log(data)
-      })
-  }
+//   const fetchData = (event) => {
+//     axios
+//       .get('http://localhost:3000/player/players')
+//       .then((res) => res.data)
+//       .then((data) => {
+//         setData(data)
+//         console.log(data)
+//       })
+//   }
 
-  if (data === undefined) {
-    fetchData()
-  }
+//   if (data === undefined) {
+//     fetchData()
+//   }
 
-  const addDataChart = () => {
-    data?.forEach((element) => {
-      if (element.position === 'Forward') {
-        chartData.push({
-          fullName: element.full_name,
-          age: element.age,
-          cleanSheetsHome: element.clean_sheets_home,
-          amt: 15,
-        })
-      }
-    })
+//   const addDataChart = () => {
+//     data?.forEach((element) => {
+//       if (element.position === 'Forward') {
+//         chartData.push({
+//           fullName: element.full_name,
+//           age: element.age,
+//           cleanSheetsHome: element.clean_sheets_home,
+//           amt: 15,
+//         })
+//       }
+//     })
 
-    console.log(chartData)
-  }
+//     console.log(chartData)
+//   }
 
-  useEffect(() => {
-    if (chartData.length === 0) {
-      addDataChart()
-    }
-  }, [data])
+//   useEffect(() => {
+//     if (chartData.length === 0) {
+//       addDataChart()
+//     }
+//   }, [data])
 
-  return (
-    <div>
-      {' '}
-      <Player data={chartData} /> 
-      <SelectPlayerController />
-    </div>
-  )
-}
+//   return (
+//     <div>
+//       {' '}
+//       <Player data={chartData} /> 
+//       <SelectPlayerController />
+//     </div>
+//   )
+// }
 
-export default TeamController
+// export default TeamController

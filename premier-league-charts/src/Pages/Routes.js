@@ -13,7 +13,7 @@ const RoutesMap = () => {
   let navigate = useNavigate ();
   const [tab, setTab] = useState(0);
   return (
-    <div style={{ height: "100vh", width: " 100vw", dislay: "flex", justifyContent: "center", overflow:"hidden" }} className="MainLayout">
+    <div style={{ minHeight: "100vh", width: " 100vw", dislay: "flex", justifyContent: "center", overflow:"hidden" }} className="MainLayout">
       <div className="NavBar" style={{ width: "100%", display: "flex", padding: "1rem", justifyContent:"center" }}>
         <div style={{fontSize:"1.5rem", fontWeight:"900", cursor: "pointer", padding: "2rem", position: "absolute", top:"1rem", left: "1rem" }} onClick={() => {
             setTab(0);
