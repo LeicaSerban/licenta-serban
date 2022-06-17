@@ -6,7 +6,7 @@ const connectDB = require("./connection");
 const leagueRoute = require('./src/route/leagueRoute');
 const teamRoute = require('./src/route/teamRoute');
 const playerRoute = require('./src/route/playerRoute');
-
+const matchRoute = require('./src/route/matchRoute'); 
 
 connectDB();
 
@@ -18,6 +18,8 @@ server.use(cors(), compression(), express.json());
 server.use('/league', leagueRoute);
 server.use('/team', teamRoute)
 server.use('/player', playerRoute)
+server.use('/match', matchRoute)
+
 
 const port = process.env.port || 3000;
 
