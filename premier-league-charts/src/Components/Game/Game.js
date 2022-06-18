@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import Autocomplete from '@mui/material/Autocomplete'
 import TextField from '@mui/material/TextField'
 import {
@@ -14,30 +14,49 @@ import {
 } from 'recharts'
 
 const Game = (props) => {
-    const [teamArray, setTeamArray] = useState([])
-  const array = []
+  const [gamesArray, setGamesArray] = useState([])
+  const [firstSelectedTeam, setFirstSelectedTeam] = useState(null)
+  const [secondSelectedTeam, setSecondSelectedTeam] = useState(null)
+  const [teamOptions, setTeamOptions] = useState([])
 
-  const data = props.data.map(element => {
-            return {name: element.name, winsHome: element.winsHome, winsAway: element.winsAway, amt: element.amt}
-  })
-  const handleChange = ( _, value) => {
-      if(teamArray.filter((team) => team.fullName === value.fullName).length < 1)
-      setTeamArray([...teamArray, value])
-
+  useEffect(() => {
+    setTeamOptions(props.dataTeam)
+  },[props.dataTeam])
+  
+  const handleChangePlayer = (_, value) => {
+    if (
+      gamesArray.filter((team) => team.teamName === value.teamName)
+        .length < 1
+    )
+      setGamesArray([...gamesArray, value])
   }
 
-  array.push(props.data)
+  const handleChangeTeam1 = (_, value) => {
+    setFirstSelectedTeam(value ? value.teamName : null)
+    setTeamOptions(teamOptions.filter((team) => 
+      team.teamName !== value.teamName
+    ))
+  }
+
+  const handleChangeTeam2 = (_, value) => {
+      setSecondSelectedTeam(value ? value.teamName : null)
+      setTeamOptions(teamOptions.filter((team) => 
+      team.teamName !== value.teamName
+    ))
+  }
+
+
   return (
     <div style={{ display: "flex", width: "90%" }}>
       
       <div style={{ display: "flex", alignItems:"center", flexDirection:"column", justifyContent:"center"}}>
         <div style={{ fontSize: "1.2rem", fontWeight: "700", padding: "1rem" }}>Select the teams</div>
         <Autocomplete
-          onChange={handleChange}
+          onChange={handleChangeTeam1}
           disablePortal
           id="combo-box-demo"
-          options={props.data}
-          getOptionLabel={(option) => (option ? option.fullName : '')}
+          options={teamOptions}
+          getOptionLabel={(option) => (option ? option.teamName : '')}
           sx={{ width: 300 }}
           renderInput={(params) => (
             <TextField {...params} label="Select Team1" />
@@ -45,11 +64,11 @@ const Game = (props) => {
         />
         <div style={{ fontSize: "1.2rem", fontWeight: "700", padding: "1rem" }}>vs</div>
         <Autocomplete
-          onChange={handleChange}
+          onChange={handleChangeTeam2}
           disablePortal
           id="combo-box-demo"
-          options={props.data}
-          getOptionLabel={(option) => (option ? option.fullName : '')}
+          options={teamOptions}
+          getOptionLabel={(option) => (option ? option.teamName : '')}
           sx={{ width: 300 }}
           renderInput={(params) => (
             <TextField {...params} label="Select Team2" />
@@ -60,7 +79,7 @@ const Game = (props) => {
       <div style={{ display: "flex", flex: "1", justifyContent: "center", alignItems: "center", width:"100%", height:"40rem" }}>
         <ResponsiveContainer width="100%" height="100%">
         <BarChart
-          data={data}
+          data={null}
           margin={{
             top: 5,
             right: 30,

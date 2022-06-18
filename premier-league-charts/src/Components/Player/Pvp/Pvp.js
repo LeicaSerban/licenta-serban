@@ -24,7 +24,7 @@ const Pvp = (props) => {
     }
   })
 
-  console.log(props)
+  
 
   const myChart = [
     {
@@ -61,7 +61,7 @@ const Pvp = (props) => {
         <RadarChart cx="50%" cy="50%" outerRadius="80%" data={myChart}>
           <PolarGrid />
           <PolarAngleAxis dataKey="subject" />
-          <PolarRadiusAxis angle={30} domain={[0, 30]} />
+          <PolarRadiusAxis angle={30} domain={[0, 60]} />
           <Radar
             name="Mike"
             dataKey="A"
