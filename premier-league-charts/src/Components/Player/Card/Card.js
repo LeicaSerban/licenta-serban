@@ -19,6 +19,7 @@ const Card = (props) => {
       yellowCardsOverall: element.yellowCardsOverall,
       redCardsOverall: element.redCardsOverall,
       currentClub: element.currentClub,
+      position: element.position,
       amt: 5,
     }
   })
@@ -29,7 +30,7 @@ const Card = (props) => {
         <LineChart data={cards}>
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="name" padding={{ left: 30, right: 30 }} />
-          <YAxis />
+          <YAxis type="number" domain={[0, 13]}/>
           <Tooltip />
           <Legend />
           <Line
@@ -40,6 +41,7 @@ const Card = (props) => {
           />
           <Line type="monotone" dataKey="redCardsOverall" stroke="#82ca9d" />
           <Line type="monotone" dataKey="currentClub" stroke="#FFA500" />
+          <Line type="monotone" dataKey="position" stroke="#DC143C" />
         </LineChart>
       </ResponsiveContainer>
     </div>

@@ -72,12 +72,12 @@ const Team = (props) => {
           >
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="name" />
-            <YAxis />
+            <YAxis type="number" domain={[0, 13]}/>
             <Tooltip />
             <Legend />
 
-            <Bar dataKey="winsAway" fill="#8884d8" />
-            <Bar dataKey="winsHome" fill="#82ca9d" />
+            <Bar dataKey="winsHome" fill="#8884d8" />
+            <Bar dataKey="winsAway" fill="#82ca9d" />
           </BarChart>
         </ResponsiveContainer>
       </div>

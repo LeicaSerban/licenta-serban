@@ -42,6 +42,7 @@ const SelectPlayerController = () => {
             yellowCardsOverall: element.yellow_cards_overall,
             redCardsOverall: element.red_cards_overall,
             currentClub: element.current_club,
+            position: element.position,
             amt: 5,
           }
         })

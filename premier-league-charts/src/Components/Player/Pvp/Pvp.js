@@ -61,7 +61,7 @@ const Pvp = (props) => {
         <RadarChart cx="50%" cy="50%" outerRadius="80%" data={myChart}>
           <PolarGrid />
           <PolarAngleAxis dataKey="subject" />
-          <PolarRadiusAxis angle={30} domain={[0, 60]} />
+          <PolarRadiusAxis angle={30} domain={[0, 'auto']} />
           <Radar
             name="Mike"
             dataKey="A"

@@ -23,13 +23,13 @@ const Game = (props) => {
     setTeamOptions(props.dataTeam)
   },[props.dataTeam])
   
-  const handleChangePlayer = (_, value) => {
-    if (
-      gamesArray.filter((team) => team.teamName === value.teamName)
-        .length < 1
-    )
-      setGamesArray([...gamesArray, value])
-  }
+  // const handleChangePlayer = (_, value) => {
+  //   if (
+  //     gamesArray.filter((team) => team.teamName === value.teamName)
+  //       .length < 1
+  //   )
+  //     setGamesArray([...gamesArray, value])
+  // }
 
   const handleChangeTeam1 = (_, value) => {
     setFirstSelectedTeam(value ? value.teamName : null)
@@ -45,12 +45,23 @@ const Game = (props) => {
     ))
   }
 
+  const teamData = props.dataPvp?.map((element) => {
+    return {
+      key: element.key,
+      fullName: element.fullName,
+      goalsOverall: element.goalsOverall,
+      assistsOverall: element.assistsOverall,
+      cleanSheetsOverall: element.cleanSheetsOverall,
+      concededOverall: element.concededOverall,
+      amt: 5,
+    }
+  })
 
   return (
     <div style={{ display: "flex", width: "90%" }}>
       
       <div style={{ display: "flex", alignItems:"center", flexDirection:"column", justifyContent:"center"}}>
-        <div style={{ fontSize: "1.2rem", fontWeight: "700", padding: "1rem" }}>Select the teams</div>
+        <div style={{ fontSize: "1.2rem", fontWeight: "700", padding: "1rem" }}>Select teams</div>
         <Autocomplete
           onChange={handleChangeTeam1}
           disablePortal
@@ -59,7 +70,7 @@ const Game = (props) => {
           getOptionLabel={(option) => (option ? option.teamName : '')}
           sx={{ width: 300 }}
           renderInput={(params) => (
-            <TextField {...params} label="Select Team1" />
+            <TextField {...params} label="Select Home Team" />
           )}
         />
         <div style={{ fontSize: "1.2rem", fontWeight: "700", padding: "1rem" }}>vs</div>
@@ -71,7 +82,7 @@ const Game = (props) => {
           getOptionLabel={(option) => (option ? option.teamName : '')}
           sx={{ width: 300 }}
           renderInput={(params) => (
-            <TextField {...params} label="Select Team2" />
+            <TextField {...params} label="Select Away Team" />
           )}
         />
       </div>
