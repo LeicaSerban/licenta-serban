@@ -19,6 +19,7 @@ const Team = (props) => {
   const [pointsGameArray, setPointsGameArray] = useState([])
   const [teamOption, setTeamOption] = useState([])
 
+  
 
   const wins = props.data?.map((element) => {
     return {
@@ -28,25 +29,23 @@ const Team = (props) => {
       pointsPerGame: element.pointsPerGame,
       pointsPerGameHome: element.pointsPerGameHome,
       pointsPerGameAway: element.pointsPerGameAway,
-      amt: 15,
+      // amt: 15,
     }
   })
 
-
   useEffect(() => {
-    if (wins)
-    setTeamOption(wins)
-    
+    if (wins) setTeamOption(wins)
   }, [props.data])
 
   const handleChangeTeam = (_, value) => {
-    if (winsArray.filter((team) => team.name === value.name).length < 1){
+    if (winsArray.filter((team) => team.name === value.name).length < 1) {
       setWinsArray([...winsArray, value])
-      };
+    }
 
     if (pointsGameArray.filter((team) => team.name === value.name).length < 1)
       setPointsGameArray([...pointsGameArray, value])
   }
+
 
   return (
     <div style={{ display: 'flex', width: '90%' }}>
@@ -72,7 +71,7 @@ const Team = (props) => {
           >
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="name" />
-            <YAxis type="number" domain={[0, 13]}/>
+            <YAxis type="number" domain={[0, 13]} />
             <Tooltip />
             <Legend />
 
@@ -138,6 +137,8 @@ const Team = (props) => {
         </ResponsiveContainer>
       </div>
     </div>
+
+    
   )
 }
 

@@ -31,7 +31,7 @@ const RoutesMap = () => {
           <div style={{fontSize:"1.5rem", fontWeight:"900", cursor: "pointer", color:`${tab === 3 ? 'blue': 'black'} ` }} onClick={() => {
             setTab(3);
             navigate("../games", { replace: true })
-          }}>Games</div>
+          }}>Fixtures</div>
         </div>
       </div>
       <Routes>
