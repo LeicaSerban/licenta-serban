@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import Button from '@mui/material/Button'
 import Autocomplete from '@mui/material/Autocomplete'
 import TextField from '@mui/material/TextField'
 import {
@@ -46,6 +47,10 @@ const Team = (props) => {
       setPointsGameArray([...pointsGameArray, value])
   }
 
+  const resetButton = () => {
+   setWinsArray([]);
+   setPointsGameArray([])
+  }
 
   return (
     <div style={{ display: 'flex', width: '90%' }}>
@@ -103,6 +108,15 @@ const Team = (props) => {
             <TextField {...params} label="Select Team" />
           )}
         />
+
+        <div style={{ marginTop: '1rem'}}>
+          <Button
+            onClick={resetButton}
+            variant="contained"
+          >
+            Reset Teams
+          </Button>
+        </div>
       </div>
 
       <div

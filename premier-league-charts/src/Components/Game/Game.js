@@ -37,10 +37,10 @@ const Game = (props) => {
   const handleChangeHome = (_, value) => {
     setFirstSelectedTeam(value ? value.teamName : null)
     setTeamOptions(
-      teamOptions.filter((team) => team.teamName !== value.teamName)
+      props.dataTeam.filter((team) => team.teamName !== value?.teamName)
     )
     const homeData = props.dataGame
-      ?.filter((homeTeam) => homeTeam.homeTeamName === value.teamName)
+      ?.filter((homeTeam) => homeTeam.homeTeamName === value?.teamName)
       .filter(
         (homeTeam) =>
           !secondSelectedTeam || homeTeam.awayTeamName === secondSelectedTeam
@@ -51,17 +51,17 @@ const Game = (props) => {
   const handleChangeAway = (_, value) => {
     setSecondSelectedTeam(value ? value.teamName : null)
     setTeamOptions(
-      teamOptions.filter((team) => team.teamName !== value.teamName)
+      props.dataTeam.filter((team) => team.teamName !== value?.teamName)
     )
     const awayData = props.dataGame
-      ?.filter((awayTeam) => awayTeam.awayTeamName === value.teamName)
+      ?.filter((awayTeam) => awayTeam.awayTeamName === value?.teamName)
       .filter(
         (awayTeam) =>
           !firstSelectedTeam || awayTeam.homeTeamName === firstSelectedTeam
       )
 
     setMatchesArray(awayData)
-    console.log(awayData)
+    
   }
 
   // const homeData = props.dataGame?.map((element) => {

@@ -96,7 +96,7 @@ const SelectPlayerController = () => {
     <Fragment>
       <SelectGoalAssist dataPlayer={dataPlayer} dataTeam={dataTeam} />
       <SelectCard dataCard={dataCard} dataTeam={dataTeam} />
-      <SelectPvp dataPvp={dataPvp} dataTeam={dataTeam}/>
+
     </Fragment>
   )
 }

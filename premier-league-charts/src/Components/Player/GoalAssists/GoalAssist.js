@@ -30,7 +30,7 @@ const GoalAssist = (props) => {
         <LineChart data={goalAssists}>
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="name" padding={{ left: 30, right: 30 }} />
-          <YAxis />
+          <YAxis type="number" domain={[0, 15]}/>
           <Tooltip />
           <Legend />
           <Line

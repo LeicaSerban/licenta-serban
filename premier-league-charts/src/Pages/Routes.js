@@ -18,7 +18,7 @@ const RoutesMap = () => {
         <div style={{fontSize:"1.5rem", fontWeight:"900", cursor: "pointer", padding: "2rem", position: "absolute", top:"1rem", left: "1rem" }} onClick={() => {
             setTab(0);
             navigate("../", { replace: true })
-          }}>My App</div>
+          }}>FootballForEveryone</div>
         <div style={{ display: "flex", justifyContent: "center", gap: "2rem", alignSelf: "center", padding: "2rem", borderRadius: "4rem" }}>
           <div style={{ fontSize: "1.5rem", fontWeight: "900", cursor: "pointer", color:`${tab === 1 ? 'blue': 'black'} ` }} onClick={() => {
             setTab(1);

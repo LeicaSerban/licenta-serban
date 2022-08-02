@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Autocomplete from '@mui/material/Autocomplete'
 import TextField from '@mui/material/TextField'
+import Button from '@mui/material/Button'
 import {
   BarChart,
   Bar,
@@ -44,6 +45,11 @@ const Team = (props) => {
 
     if (possessArray.filter((team) => team.name === value.name).length < 1)
       setPossessArray([...possessArray, value])
+  }
+
+  const resetButton = () => {
+   setShotArray([]);
+   setPossessArray([])
   }
 
   return (
@@ -104,6 +110,14 @@ const Team = (props) => {
             <TextField {...params} label="Select Team" />
           )}
         />
+        <div style={{ marginTop: '1rem'}}>
+          <Button
+            onClick={resetButton}
+            variant="contained"
+          >
+            Reset Teams
+          </Button>
+        </div>
       </div>
 
       <div

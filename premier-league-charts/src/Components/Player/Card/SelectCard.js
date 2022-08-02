@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
+import Button from '@mui/material/Button'
 import TextField from '@mui/material/TextField'
 import Autocomplete from '@mui/material/Autocomplete'
 import Card from './Card'
@@ -27,6 +28,10 @@ const SelectCard = (props) => {
 
   const handleChangeTeam = (_, value) => {
     setSelectedTeam(value ? value.teamName : null)
+  }
+
+   const resetButton = () => {
+   setCardArray([])
   }
 
   return (
@@ -69,6 +74,14 @@ const SelectCard = (props) => {
             <TextField {...params} label="Select Team" />
           )}
         />
+        <div style={{ marginTop: '1rem'}}>
+          <Button
+            onClick={resetButton}
+            variant="contained"
+          >
+            Reset Players
+          </Button>
+        </div>
       </div>
       <div
         style={{
